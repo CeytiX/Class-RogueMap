@@ -3,7 +3,7 @@ FLAGS = -Wall
 EXEC = WaterMapGenerator
 EXEC2 = WallMapGenerator
 
-all: water
+all: water wall
 
 water:
 	$(CC) src/water_map_generator.cpp -o $(EXEC) $(FLAGS)
