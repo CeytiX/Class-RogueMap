@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	int map[40][40] = {0};
+	int map[40][40] = {{0}};
 	srand(time(0));
 
 	int xMin, xMax, yMin, yMax, width, height;

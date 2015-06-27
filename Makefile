@@ -10,3 +10,6 @@ water:
 
 wall:
 	$(CC) src/wall_map_generator.cpp -o $(EXEC2) $(FLAGS)
+
+clean:
+	rm $(EXEC) $(EXEC2)

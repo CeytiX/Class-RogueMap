@@ -184,15 +184,15 @@ int main()
 		for(int j=0; j<SIZE; j++)
 		{
 			if(map[i][j] == 1)
-				cout << "#";
+				cout << "# ";
 			else if(map[i][j] == 2)
-				cout << "@";
+				cout << "@ ";
 			else if(map[i][j] == 3)
-				cout << "&";
+				cout << "& ";
 			else if(map[i][j] == 4)
-				cout << "$";
+				cout << "$ ";
 			else
-				cout << ".";
+				cout << ". ";
 		}
 		cout << endl;
 	}
