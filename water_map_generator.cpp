@@ -24,7 +24,7 @@ int main()
 {
 	srand(time(0));
 	
-	int map[SIZE][SIZE] = {0};
+	int map[SIZE][SIZE] = {{0}};
 	
 	/** boat 1 **/
 	bool boat1 = false;
