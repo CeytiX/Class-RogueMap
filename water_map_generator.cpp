@@ -16,9 +16,9 @@
 #include <cstdlib>
 #include <ctime>
 
-const int SIZE = 10; /** height and width of the map **/
-
 using namespace std;
+
+const int SIZE = 10; /** height and width of the map **/
 
 int main()
 {
