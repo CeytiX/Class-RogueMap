@@ -11,7 +11,7 @@ ___
 
 ## Wall map generator
 
-Creates a map (40*40) in which there are rooms and corridors
+Creates a map in which there are rooms and corridors randomly created
 
 ___
 
