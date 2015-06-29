@@ -17,27 +17,27 @@ int main()
 	* ROOM 1 *
 	*********/
 
-	int xMin, xMax, yMin, yMax, width, height;
+	int xMin_1, xMax_1, yMin_1, yMax_1, width_1, height_1;
 
-	width = rand()%10 + 6;
-	height = rand()%10 + 6;
+	width_1 = rand()%10 + 6;
+	height_1 = rand()%10 + 6;
 
-	xMin = rand()%(39-width);
-	yMin = rand()%(39-height);
+	xMin_1 = rand()%(39-width_1);
+	yMin_1 = rand()%(39-height_1);
 
-	xMax = xMin + width;
-	yMax = yMin + height;
+	xMax_1 = xMin_1 + width_1;
+	yMax_1 = yMin_1 + height_1;
 
-	for(int i=xMin; i<=xMax; i++)
+	for(int i=xMin_1; i<=xMax_1; i++)
 	{
-		map[i][yMin]++;
-		map[i][yMax]++;
+		map[i][yMin_1]++;
+		map[i][yMax_1]++;
 	}
 
-	for(int j=yMin+1; j<yMax; j++)
+	for(int j=yMin_1+1; j<yMax_1; j++)
 	{
-		map[xMin][j]++;
-		map[xMax][j]++;
+		map[xMin_1][j]++;
+		map[xMax_1][j]++;
 	}
 
 	/*********
@@ -76,7 +76,7 @@ int main()
 		
 		bool placed = false;
 		
-		if((xMax_2>=xMin+3 && xMax>=xMin_2+3) || (yMax_2>=yMin+3 && yMax>=yMin_2+3))
+		if((xMax_2>=xMin_1+3 && xMax_1>=xMin_2+3) || (yMax_2>=yMin_1+3 && yMax_1>=yMin_2+3))
 		{
 			placed = true;
 		}
@@ -85,11 +85,11 @@ int main()
 		* ROOM.corridor 2 *
 		******************/
 	
-		if(xMax_2>=xMin+3 && xMax>=xMin_2+3)
+		if(xMax_2>=xMin_1+3 && xMax_1>=xMin_2+3)
 		{
-			int y = (yMin > yMax_2)?yMax_2:yMax;
-			int y2 = (yMin > yMax_2)?yMin:yMin_2;
-			int x = (xMax < xMax_2)?xMax:xMax_2;
+			int y = (yMin_1 > yMax_2)?yMax_2:yMax_1;
+			int y2 = (yMin_1 > yMax_2)?yMin_1:yMin_2;
+			int x = (xMax_1 < xMax_2)?xMax_1:xMax_2;
 		
 			for(int i=y+1; i<y2; i++)
 			{
@@ -102,9 +102,9 @@ int main()
 		}
 		else
 		{
-			int x = (xMin > xMax_2)?xMax_2:xMax;
-			int x2 = (xMin > xMax_2)?xMin:xMin_2;
-			int y = (yMax < yMax_2)?yMax:yMax_2;
+			int x = (xMin_1 > xMax_2)?xMax_2:xMax_1;
+			int x2 = (xMin_1 > xMax_2)?xMin_1:xMin_2;
+			int y = (yMax_1 < yMax_2)?yMax_1:yMax_2;
 		
 			for(int i=x+1; i<x2; i++)
 			{
@@ -139,11 +139,11 @@ int main()
 	
 	/** place the corridor **/
 	
-	if(xMax_2>=xMin+3 && xMax>=xMin_2+3)
+	if(xMax_2>=xMin_1+3 && xMax_1>=xMin_2+3)
 	{
-		int y = (yMin > yMax_2)?yMax_2:yMax;
-		int y2 = (yMin > yMax_2)?yMin:yMin_2;
-		int x = (xMax < xMax_2)?xMax:xMax_2;
+		int y = (yMin_1 > yMax_2)?yMax_2:yMax_1;
+		int y2 = (yMin_1 > yMax_2)?yMin_1:yMin_2;
+		int x = (xMax_1 < xMax_2)?xMax_1:xMax_2;
 
 		for(int i=y; i<=y2; i++)
 		{
@@ -153,9 +153,9 @@ int main()
 	}
 	else
 	{
-		int x = (xMin > xMax_2)?xMax_2:xMax;
-		int x2 = (xMin > xMax_2)?xMin:xMin_2;
-		int y = (yMax < yMax_2)?yMax:yMax_2;
+		int x = (xMin_1 > xMax_2)?xMax_2:xMax_1;
+		int x2 = (xMin_1 > xMax_2)?xMin_1:xMin_2;
+		int y = (yMax_1 < yMax_2)?yMax_1:yMax_2;
 
 		for(int i=x; i<=x2; i++)
 		{
