@@ -9,7 +9,7 @@ Creates a map in which 4 boats are randomly created
 
 ___
 
-## Wall map generator
+## Rogue map generator
 
 Creates a map in which there are rooms and corridors randomly created
 
