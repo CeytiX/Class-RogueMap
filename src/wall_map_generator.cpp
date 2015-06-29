@@ -9,8 +9,11 @@ int main()
 	/*******
 	* INIT *
 	********/
-
-	int map[40][40] = {{0}};
+	const int SIZE = 50;
+	const int MIN_ROOM = 6; /** walls included **/
+	const int MAX_ROOM = 15; /** walls included **/
+	
+	int map[SIZE][SIZE] = {{0}};
 	srand(time(0));
 	
 	/*********
@@ -19,11 +22,11 @@ int main()
 
 	int xMin_1, xMax_1, yMin_1, yMax_1, width_1, height_1;
 
-	width_1 = rand()%10 + 6;
-	height_1 = rand()%10 + 6;
+	width_1 = rand()%(MAX_ROOM-MIN_ROOM+1) + MIN_ROOM;
+	height_1 = rand()%(MAX_ROOM-MIN_ROOM+1) + MIN_ROOM;
 
-	xMin_1 = rand()%(39-width_1);
-	yMin_1 = rand()%(39-height_1);
+	xMin_1 = rand()%(SIZE-width_1-1);
+	yMin_1 = rand()%(SIZE-height_1-1);
 
 	xMax_1 = xMin_1 + width_1;
 	yMax_1 = yMin_1 + height_1;
@@ -39,7 +42,7 @@ int main()
 		map[xMin_1][j]++;
 		map[xMax_1][j]++;
 	}
-
+	
 	/*********
 	* ROOM 2 *
 	*********/
@@ -52,20 +55,20 @@ int main()
 
 	while(!room_2)
 	{
-		width_2 = rand()%10 + 6;
-		height_2 = rand()%10 + 6;
+		width_2 = rand()%(MAX_ROOM-MIN_ROOM+1) + MIN_ROOM;
+		height_2 = rand()%(MAX_ROOM-MIN_ROOM+1) + MIN_ROOM;
 
-		xMin_2 = rand()%(39-width_2);
-		yMin_2 = rand()%(39-height_2);
+		xMin_2 = rand()%(SIZE-width_2-1);
+		yMin_2 = rand()%(SIZE-height_2-1);
 
 		xMax_2 = xMin_2 + width_2;
 		yMax_2 = yMin_2 + height_2;
 
 		bool intersection = true;
 		
-		for(int i=(xMin_2-2>=0)?xMin_2-2:xMin_2; i<=(xMax_2+2<40?xMax_2+2:xMax_2); i++)
+		for(int i=(xMin_2-2>=0)?xMin_2-2:xMin_2; i<=(xMax_2+2<SIZE?xMax_2+2:xMax_2); i++)
 		{
-			for(int j=(yMin_2-2>=0)?yMin_2-2:yMin_2; j<=(yMax_2+2<40?yMax_2+2:yMax_2); j++)
+			for(int j=(yMin_2-2>=0)?yMin_2-2:yMin_2; j<=(yMax_2+2<SIZE?yMax_2+2:yMax_2); j++)
 			{
 				if(map[i][j] > 0)
 				{
@@ -166,9 +169,9 @@ int main()
 	
 	/** place the doors **/
 	
-	for(int i=0; i<40; i++)
+	for(int i=0; i<SIZE; i++)
 	{
-		for(int j=0; j<40; j++)
+		for(int j=0; j<SIZE; j++)
 		{
 			if(map[i][j] == 2)
 			{
@@ -208,20 +211,20 @@ int main()
 
 	while(!room_3)
 	{
-		width_3 = rand()%10 + 6;
-		height_3 = rand()%10 + 6;
+		width_3 = rand()%(MAX_ROOM-MIN_ROOM+1) + MIN_ROOM;;
+		height_3 = rand()%(MAX_ROOM-MIN_ROOM+1) + MIN_ROOM;;
 
-		xMin_3 = rand()%(39-width_3);
-		yMin_3 = rand()%(39-height_3);
+		xMin_3 = rand()%(SIZE-width_3-1);
+		yMin_3 = rand()%(SIZE-height_3-1);
 
 		xMax_3 = xMin_3 + width_3;
 		yMax_3 = yMin_3 + height_3;
 
 		bool intersection = true;
 		
-		for(int i=(xMin_3-2>=0)?xMin_3-2:xMin_3; i<=(xMax_3+2<40?xMax_3+2:xMax_3); i++)
+		for(int i=(xMin_3-2>=0)?xMin_3-2:xMin_3; i<=(xMax_3+2<SIZE?xMax_3+2:xMax_3); i++)
 		{
-			for(int j=(yMin_3-2>=0)?yMin_3-2:yMin_3; j<=(yMax_3+2<40?yMax_3+2:yMax_3); j++)
+			for(int j=(yMin_3-2>=0)?yMin_3-2:yMin_3; j<=(yMax_3+2<SIZE?yMax_3+2:yMax_3); j++)
 			{
 				if(map[i][j] > 0)
 				{
@@ -322,9 +325,9 @@ int main()
 	
 	/** place the doors **/
 	
-	for(int i=0; i<40; i++)
+	for(int i=0; i<SIZE; i++)
 	{
-		for(int j=0; j<40; j++)
+		for(int j=0; j<SIZE; j++)
 		{
 			if(map[i][j] == 2)
 			{
@@ -356,9 +359,9 @@ int main()
 	* PRINT *
 	********/
 	
-	for(int i=0; i<40; i++)
+	for(int i=0; i<SIZE; i++)
 	{
-		for(int j=0; j<40; j++)
+		for(int j=0; j<SIZE; j++)
 		{
 			if(map[i][j] == 1)
 			{
@@ -380,6 +383,7 @@ int main()
 
 		cout << endl;
 	}
+	
 	/******
 	* END *
 	******/
