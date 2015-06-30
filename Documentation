@@ -1,0 +1,46 @@
+The Roguemap class allows you to create a random map and interact with it.
+
+The constructor is `RogueMap()`
+	So you have to add no parameters:
+		`Roguemap roguemap;`
+	If you don't change anything, there are 3 rooms and their size is between 7 and 16 
+	The size of the map is 40*40
+
+`void generate()`:
+	Create random rooms in the map
+	
+`void setSeed(int value)`:
+	set a value roguemap.seed
+	the new seed is the absolute value of `value`
+	
+`int getSeed()`:
+	return roguemap.seed
+	
+`void setRandom(bool value)`:
+	set a value to roguemap.random
+	if value == true, a new seed is created for each new map
+	if value == false, the seed of the next map is the actual seed
+	
+`bool getRandom()`:
+	return the value of roguemap.random
+	
+`void setRoomSize(int min, int max)`:
+	set the minimum and the maximum size of a room side
+
+`void setRooms(int number)`:
+	set the number of rooms for the next generations
+	
+`void setCell(int x, int y, int value)`:
+	set value to roguemap.map[x][y]
+	
+`int getCell(int x, int y)`:
+	return roguemap.map[x][y]
+	
+cell values:
+	0 : void
+	1 : wall
+	2 : not allowed value
+	3/4 : door
+
+you can use the operator<<(ostream&, Roguemap)
+

@@ -313,7 +313,7 @@ void Roguemap::setRooms(int number)
 
 void Roguemap::setCell(int x, int y, int value)
 {
-	if(x>=0 && x<SIZE && y>=0 && y<SIZE && value>=0 && value<=4)
+	if(x>=0 && x<SIZE && y>=0 && y<SIZE && value>=0 && value<=4 && value!=2)
 	{
 		map[x][y] = value;
 	}
