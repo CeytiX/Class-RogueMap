@@ -35,6 +35,7 @@ The constructor is `RogueMap()`
 	
 `int getCell(int x, int y)`:
 	return roguemap.map[x][y]
+	if return value is -1, roguemap.map[x][y] doesn't exist
 	
 cell values:
 	0 : void
