@@ -23,8 +23,6 @@ class Roguemap
 		void setCell(int, int, int);
 		int getCell(int, int);
 		
-		void print();
-		
 	private:
 	
 		int map[SIZE][SIZE];
