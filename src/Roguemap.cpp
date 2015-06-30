@@ -303,30 +303,69 @@ void Roguemap::setRooms(int number)
 	}
 }
 
-void Roguemap::print()
+/******************************
+* void setCell(int, int, int) *
+******************************/
+
+void Roguemap::setCell(int x, int y, int value)
+{
+	if(x>=0 && x<SIZE && y>=0 && y<SIZE && value>=0 && value<=4)
+	{
+		map[x][y] = value;
+	}
+}
+
+/************************
+* int getCell(int, int) *
+************************/
+
+int Roguemap::getCell(int x, int y)
+{
+	if(x>=0 && x<SIZE && y>=0 && y<SIZE)
+	{
+		return map[x][y];
+	}
+	else return -1;
+}
+
+/******************************************
+* ostream &operator<<(ostream&, Roguemap) *
+******************************************/
+ostream &operator<<(ostream &stream, Roguemap roguemap)
 {
 	for(int i=0; i<SIZE; i++)
 	{
 		for(int j=0; j<SIZE; j++)
 		{
-			if(map[i][j] == 1)
+			switch(roguemap.getCell(i, j))
 			{
-				cout << "# ";
-			}
-			else if(map[i][j] == 3)
-			{
-				cout << "| ";
-			}
-			else if(map[i][j] == 4)
-			{
-				cout << "_ ";
-			}
-			else
-			{
-				cout << ". ";
+				case 0:
+					stream << ". ";
+					break;
+					
+				case 1:
+					stream << "# ";
+					break;
+				
+				/** there isn't case 2 **/
+					
+				case 3:
+					stream << "| ";
+					break;
+					
+				case 4:
+					stream << "_ ";
+					break;
+					
+				default:
+					stream << ". ";
+					break;
 			}
 		}
-
-		cout << endl;
+		
+		stream << endl;
 	}
+	
+	return stream;
 }
+

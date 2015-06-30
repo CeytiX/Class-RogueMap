@@ -1,3 +1,5 @@
+#include <iostream>
+
 const int SIZE = 40;
 
 class Roguemap
@@ -18,6 +20,9 @@ class Roguemap
 		void setRoomSize(int, int);
 		void setRooms(int);
 		
+		void setCell(int, int, int);
+		int getCell(int, int);
+		
 		void print();
 		
 	private:
@@ -32,3 +37,5 @@ class Roguemap
 		
 		int rooms;
 };
+
+std::ostream &operator<<(std::ostream&, Roguemap);

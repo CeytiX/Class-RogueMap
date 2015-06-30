@@ -1,4 +1,4 @@
-#include "RogueMap.cpp"
+#include "Roguemap.cpp"
 
 int main()
 {
@@ -6,7 +6,7 @@ int main()
 	
 	roguemap.generate();
 	
-	roguemap.print();
+	cout << roguemap;
 	
 	return 0;
 }
