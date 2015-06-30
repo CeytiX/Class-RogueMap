@@ -39,11 +39,17 @@ The constructor is `RogueMap()`
 	if return value is -1, roguemap.map[x][y] doesn't exist
 	
 cell values:
-	0 : void
-	1 : wall
-	2 : not allowed value
-	3/4 : door
-	5 : ground
+	0 : . :void
+	1 : # :wall
+	2 :   : not allowed value
+	3 : _ : door
+	4 : | :door
+	5 : " : ground
+	6 : $ : no use
+	7 : * : no use
+	8 : w : no use
+	9 : % : no use
+	10: § : no use
 
 you can use the operator<<(ostream&, Roguemap)
 

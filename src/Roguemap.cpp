@@ -367,7 +367,7 @@ void Roguemap::setRooms(int number)
 
 void Roguemap::setCell(int x, int y, int value)
 {
-	if(x>=0 && x<SIZE && y>=0 && y<SIZE && value>=0 && value<=5 && value!=2)
+	if(x>=0 && x<SIZE && y>=0 && y<SIZE && value>=0 && value<=10 && value!=2)
 	{
 		map[x][y] = value;
 	}
@@ -419,6 +419,26 @@ ostream &operator<<(ostream &stream, Roguemap roguemap)
 					stream << "\" ";
 					break;
 					
+				case 6:
+					stream << "$ ";
+					break;
+
+				case 7:
+					stream << "* ";
+					break;
+
+				case 8:
+					stream << "w ";
+					break;
+
+				case 9:
+					stream << "% ";
+					break;
+
+				case 10:
+					stream << "§ ";
+					break;
+	
 				default:
 					stream << ". ";
 					break;
