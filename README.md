@@ -17,9 +17,9 @@ g++: `sudo apt-get install g++`
 
 ### Download
 
--> Download the source code (`git clone https://github.com/CeytiX/Map-Generators.git`)
+-> Download the source code (`git clone https://github.com/CeytiX/RogueMap-Generator.git`)
 
--> Go in the directory 'Map-Generators' (`cd Map-Generators/`)
+-> Go in the directory 'Map-Generators' (`cd RogueMap-Generator/`)
 
 ### Compile and Run
 
