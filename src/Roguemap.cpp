@@ -337,7 +337,7 @@ ostream &operator<<(ostream &stream, Roguemap roguemap)
 	{
 		for(int j=0; j<SIZE; j++)
 		{
-			switch(roguemap.getCell(i, j))
+			switch(roguemap.getCell(j, i))
 			{
 				case 0:
 					stream << ". ";
@@ -350,11 +350,11 @@ ostream &operator<<(ostream &stream, Roguemap roguemap)
 				/** there isn't case 2 **/
 					
 				case 3:
-					stream << "| ";
+					stream << "_ ";
 					break;
 					
 				case 4:
-					stream << "_ ";
+					stream << "| ";
 					break;
 					
 				default:
