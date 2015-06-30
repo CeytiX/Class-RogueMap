@@ -108,6 +108,8 @@ void Roguemap::generate()
 		
 		while(!room[k])
 		{
+			corridor[k] = true;
+			
 			beginRoom = rand()%k + 1;
 			
 			width[k] = rand()%(max_size-min_size+1) + min_size;
@@ -171,7 +173,7 @@ void Roguemap::generate()
 					}
 				}
 			}
-		
+			
 			room[k] = intersection && placed && corridor[k];
 		}
 	
@@ -326,9 +328,36 @@ void Roguemap::setRoomSize(int min, int max)
 
 void Roguemap::setRooms(int number)
 {
-	if(rooms < (pow(SIZE,2)/pow(max_size,2)))
+	int max;
+	
+	if(SIZE>=40 && SIZE<45)
+	{
+		max = 4;
+	}
+	else if(SIZE>=45 && SIZE<50)
+	{
+		max = 5;
+	}
+	else if(SIZE>=50 && SIZE<55)
+	{
+		max = 7;
+	}
+	else if(SIZE>=55 && SIZE<60)
+	{
+		max = 9;
+	}
+	else if(SIZE==60)
+	{
+		max = 10;
+	}
+	
+	if(number<=max)
 	{
 		rooms = number;
+	}
+	else
+	{
+		rooms = max;
 	}
 }
 

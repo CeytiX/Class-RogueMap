@@ -1,6 +1,6 @@
 #include <iostream>
 
-const int SIZE = 40;
+const int SIZE = 40; /** between 40 and 60 **/
 
 class Roguemap
 {
