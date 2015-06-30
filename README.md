@@ -31,6 +31,18 @@ ___
 
 ___
 
+## Use this class
+
+Feel free to use the Roguemap class in your codes
+
+If you have a problem, send me an email
+
+If you use this class and publish your code, it could be nice if you quote the source of the class
+
+___
+
+___
+
 ## Author
 
 Ceytix (FR) <ceytix@mailoo.org>
