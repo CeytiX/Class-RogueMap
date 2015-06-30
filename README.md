@@ -1,4 +1,4 @@
-# Rogue map generator
+# Class Roguemap
 [C++]
 
 Creates a map in which there are rooms and corridors randomly created
