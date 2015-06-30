@@ -67,18 +67,25 @@ void Roguemap::generate()
 	xMax[0] = xMin[0] + width[0];
 	yMax[0] = yMin[0] + height[0];
 
-	for(int i=xMin[0]; i<=xMax[0]; i++)
+	for(int i=xMin[0]; i<=xMax[0]; i++) /** place the walls of room 0 **/
 	{
 		map[i][yMin[0]]++;
 		map[i][yMax[0]]++;
 	}
 
-	for(int j=yMin[0]+1; j<yMax[0]; j++)
+	for(int j=yMin[0]+1; j<yMax[0]; j++) /** place the walls of room 0 **/
 	{
 		map[xMin[0]][j]++;
 		map[xMax[0]][j]++;
 	}
 	
+	for(int i=xMin[0]+1; i<xMax[0]; i++) /** place the ground of room 0 **/
+		{
+			for(int j=yMin[0]+1; j<yMax[0]; j++)
+			{
+				map[i][j] = 5;
+			}
+		}
 	
 	/***************
 	* OTHERS ROOMS *
@@ -185,6 +192,14 @@ void Roguemap::generate()
 			map[xMin[k]][j]++;
 			map[xMax[k]][j]++;
 		}
+		
+		for(int i=xMin[k]+1; i<xMax[k]; i++)
+		{
+			for(int j=yMin[k]+1; j<yMax[k]; j++)
+			{
+				map[i][j] = 5;
+			}
+		}
 	
 		/** place the corridor **/
 	
@@ -194,11 +209,16 @@ void Roguemap::generate()
 			int y2 = (yMin[k-beginRoom] > yMax[k])?yMin[k-beginRoom]:yMin[k];
 			int x = (xMax[k-beginRoom] < xMax[k])?xMax[k-beginRoom]:xMax[k];
 
-			for(int i=y; i<=y2; i++)
+			for(int i=y; i<=y2; i++) /** place the walls of the corridor **/
 			{
 				map[x][i]++;
 				map[x-2][i]++;
 				orientation[k] = true;
+			}
+			
+			for(int i=y+1; i<y2; i++) /** place the ground of the corridor **/
+			{
+				map[x-1][i] = 5;
 			}
 		}
 		else
@@ -207,14 +227,19 @@ void Roguemap::generate()
 			int x2 = (xMin[k-beginRoom] > xMax[k])?xMin[k-beginRoom]:xMin[k];
 			int y = (yMax[k-beginRoom] < yMax[k])?yMax[k-beginRoom]:yMax[k];
 
-			for(int i=x; i<=x2; i++)
+			for(int i=x; i<=x2; i++) /** place the walls of the corridor **/
 			{
 				map[i][y]++;
 				map[i][y-2]++;
 				orientation[k] = false;
 			}
+			
+			for(int i=x+1; i<x2; i++) /** place the ground of the corridor **/
+			{
+				map[i][y-1] = 5;
+			}
 		}
-	
+		
 		/** place the doors **/
 	
 		for(int i=0; i<SIZE; i++)
@@ -313,7 +338,7 @@ void Roguemap::setRooms(int number)
 
 void Roguemap::setCell(int x, int y, int value)
 {
-	if(x>=0 && x<SIZE && y>=0 && y<SIZE && value>=0 && value<=4 && value!=2)
+	if(x>=0 && x<SIZE && y>=0 && y<SIZE && value>=0 && value<=5 && value!=2)
 	{
 		map[x][y] = value;
 	}
@@ -359,6 +384,10 @@ ostream &operator<<(ostream &stream, Roguemap roguemap)
 					
 				case 4:
 					stream << "| ";
+					break;
+					
+				case 5:
+					stream << "\" ";
 					break;
 					
 				default:

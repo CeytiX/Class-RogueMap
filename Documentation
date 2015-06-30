@@ -41,6 +41,7 @@ cell values:
 	1 : wall
 	2 : not allowed value
 	3/4 : door
+	5 : ground
 
 you can use the operator<<(ostream&, Roguemap)
 
