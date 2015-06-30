@@ -97,8 +97,12 @@ void Roguemap::generate()
 	 
 	for(int k=1; k<rooms; k++)
 	{
+		int beginRoom;
+		
 		while(!room[k])
 		{
+			beginRoom = rand()%k + 1;
+			
 			width[k] = rand()%(max_size-min_size+1) + min_size;
 			height[k] = rand()%(max_size-min_size+1) + min_size;
 
@@ -123,7 +127,7 @@ void Roguemap::generate()
 		
 			bool placed = false;
 		
-			if((xMax[k]>=xMin[k-1]+3 && xMax[k-1]>=xMin[k]+3) || (yMax[k]>=yMin[k-1]+3 && yMax[k-1]>=yMin[k]+3))
+			if((xMax[k]>=xMin[k-beginRoom]+3 && xMax[k-beginRoom]>=xMin[k]+3) || (yMax[k]>=yMin[k-beginRoom]+3 && yMax[k-beginRoom]>=yMin[k]+3))
 			{
 				placed = true;
 			}
@@ -132,11 +136,11 @@ void Roguemap::generate()
 			* ROOM.corridor *
 			****************/
 	
-			if(xMax[k]>=xMin[k-1]+3 && xMax[k-1]>=xMin[k]+3)
+			if(xMax[k]>=xMin[k-beginRoom]+3 && xMax[k-beginRoom]>=xMin[k]+3)
 			{
-				int y = (yMin[k-1] > yMax[k])?yMax[k]:yMax[k-1];
-				int y2 = (yMin[k-1] > yMax[k])?yMin[k-1]:yMin[k];
-				int x = (xMax[k-1] < xMax[k])?xMax[k-1]:xMax[k];
+				int y = (yMin[k-beginRoom] > yMax[k])?yMax[k]:yMax[k-beginRoom];
+				int y2 = (yMin[k-beginRoom] > yMax[k])?yMin[k-beginRoom]:yMin[k];
+				int x = (xMax[k-beginRoom] < xMax[k])?xMax[k-beginRoom]:xMax[k];
 		
 				for(int i=y+1; i<y2; i++)
 				{
@@ -148,9 +152,9 @@ void Roguemap::generate()
 			}
 			else
 			{
-				int x = (xMin[k-1] > xMax[k])?xMax[k]:xMax[k-1];
-				int x2 = (xMin[k-1] > xMax[k])?xMin[k-1]:xMin[k];
-				int y = (yMax[k-1] < yMax[k])?yMax[k-1]:yMax[k];
+				int x = (xMin[k-beginRoom] > xMax[k])?xMax[k]:xMax[k-beginRoom];
+				int x2 = (xMin[k-beginRoom] > xMax[k])?xMin[k-beginRoom]:xMin[k];
+				int y = (yMax[k-beginRoom] < yMax[k])?yMax[k-beginRoom]:yMax[k];
 		
 				for(int i=x+1; i<x2; i++)
 				{
@@ -184,11 +188,11 @@ void Roguemap::generate()
 	
 		/** place the corridor **/
 	
-		if(xMax[k]>=xMin[k-1]+3 && xMax[k-1]>=xMin[k]+3)
+		if(xMax[k]>=xMin[k-beginRoom]+3 && xMax[k-beginRoom]>=xMin[k]+3)
 		{
-			int y = (yMin[k-1] > yMax[k])?yMax[k]:yMax[k-1];
-			int y2 = (yMin[k-1] > yMax[k])?yMin[k-1]:yMin[k];
-			int x = (xMax[k-1] < xMax[k])?xMax[k-1]:xMax[k];
+			int y = (yMin[k-beginRoom] > yMax[k])?yMax[k]:yMax[k-beginRoom];
+			int y2 = (yMin[k-beginRoom] > yMax[k])?yMin[k-beginRoom]:yMin[k];
+			int x = (xMax[k-beginRoom] < xMax[k])?xMax[k-beginRoom]:xMax[k];
 
 			for(int i=y; i<=y2; i++)
 			{
@@ -199,9 +203,9 @@ void Roguemap::generate()
 		}
 		else
 		{
-			int x = (xMin[k-1] > xMax[k])?xMax[k]:xMax[k-1];
-			int x2 = (xMin[k-1] > xMax[k])?xMin[k-1]:xMin[k];
-			int y = (yMax[k-1] < yMax[k])?yMax[k-1]:yMax[k];
+			int x = (xMin[k-beginRoom] > xMax[k])?xMax[k]:xMax[k-beginRoom];
+			int x2 = (xMin[k-beginRoom] > xMax[k])?xMin[k-beginRoom]:xMin[k];
+			int y = (yMax[k-beginRoom] < yMax[k])?yMax[k-beginRoom]:yMax[k];
 
 			for(int i=x; i<=x2; i++)
 			{
