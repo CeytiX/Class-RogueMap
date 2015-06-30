@@ -29,6 +29,7 @@ The constructor is `RogueMap()`
 
 `void setRooms(int number)`:
 	set the number of rooms for the next generations
+	if number is to high, the number of rooms take his maximum value
 	
 `void setCell(int x, int y, int value)`:
 	set value to roguemap.map[x][y]
