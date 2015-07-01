@@ -328,28 +328,7 @@ void Roguemap::setRoomSize(int min, int max)
 
 void Roguemap::setRooms(int number)
 {
-	int max;
-	
-	if(SIZE>=40 && SIZE<45)
-	{
-		max = 4;
-	}
-	else if(SIZE>=45 && SIZE<50)
-	{
-		max = 5;
-	}
-	else if(SIZE>=50 && SIZE<55)
-	{
-		max = 7;
-	}
-	else if(SIZE>=55 && SIZE<60)
-	{
-		max = 9;
-	}
-	else if(SIZE==60)
-	{
-		max = 10;
-	}
+	int max = (int)((int)(SIZE/max_size)*(1.5+((SIZE-40)/10)*0.5));
 	
 	if(number<=max)
 	{
