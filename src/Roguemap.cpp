@@ -24,7 +24,7 @@ Roguemap::Roguemap()
 	random = true;
 
 	min_size = 6; /** insde: 5 **/
-	max_size = 15; /** inside: 14 **/
+	max_size = 10; /** inside: 9 **/
 	
 	rooms = 3;
 }
@@ -44,6 +44,14 @@ Roguemap::~Roguemap()
 
 void Roguemap::generate()
 {
+	for(int i=0; i<SIZE; i++)
+        {
+                for(int j=0; j<SIZE; j++)
+                {
+                        map[i][j] = 0;
+                }
+        }
+
 	if(random) seed = time(0);
 	srand(seed);
 	
@@ -328,7 +336,7 @@ void Roguemap::setRoomSize(int min, int max)
 
 void Roguemap::setRooms(int number)
 {
-	int max = (int)((int)(SIZE/max_size)*(1.5+((SIZE-40)/10)*0.5));
+	int max = (int)((int)(SIZE/max_size)*(1.5+((SIZE-40)/10)*0.5)-1);
 	
 	if(number<=max)
 	{
